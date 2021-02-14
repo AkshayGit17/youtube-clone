@@ -226,17 +226,105 @@ body {
 /**/
 .main-div {
   display: grid;
-  grid-template-columns: 17vw 83vw;
+  grid-template-columns: 100vw;
 }
 /**/
 
-/*youtube items*/
-.general-items {
-  padding-top: 0.8rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid #ccc;
+/*sidebar*/
+.sidebar {
+  display: none;
 }
-.general-item {
+@media screen and (min-width: 768px) {
+  .main-div {
+    grid-template-columns: 9vw 91vw;
+  }
+  .sidebar {
+    display: block;
+  }
+  .general-item {
+    display: none;
+  }
+  .general-item.medium {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-decoration: none;
+    font-size: 10px;
+    color: #505050;
+  }
+  .general-item img {
+    height: 24px;
+  }
+  .subscription-items {
+    display: none;
+  }
+  .general-item.active {
+    color: red;
+  }
+  .general-item img {
+    filter: invert(30%) sepia(2%) saturate(3%) hue-rotate(321deg)
+      brightness(92%) contrast(82%);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-div {
+    grid-template-columns: 17vw 83vw;
+  }
+  .general-item {
+    display: flex;
+  }
+  .general-items {
+    padding-top: 0.8rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #ccc;
+  }
+  .general-item,
+  .general-item.medium {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1.2rem;
+    height: 40px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #505050;
+  }
+  .general-item.active {
+    background: #eee;
+    font-weight: 600;
+  }
+  .general-item img {
+    margin-right: 1rem;
+    height: 20px;
+  }
+  .general-item.active {
+    background: #eee;
+    font-weight: 600;
+  }
+  .subscription-items {
+    display: block;
+  }
+}
+.general-item.active img {
+  filter: invert(16%) sepia(89%) saturate(7130%) hue-rotate(358deg)
+    brightness(115%) contrast(113%);
+}
+
+.general-item:hover {
+  background: #f8f8f8;
+}
+/*sidebar*/
+
+/*subscription items*/
+.subscription-items h3 {
+  padding: 1rem 1.2rem;
+  font-size: 14px;
+  color: #505050;
+  font-weight: 600;
+}
+.subscription-item {
   display: flex;
   align-items: center;
   padding: 0 1.2rem;
@@ -244,20 +332,23 @@ body {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  color: black;
+  color: #505050;
 }
-.general-item.active {
-  background: #eee;
-  font-weight: 600;
-}
-.general-item.active img {
-  filter: invert(16%) sepia(89%) saturate(7130%) hue-rotate(358deg)
-    brightness(115%) contrast(113%);
-}
-.general-item img {
+.subscription-item img {
   margin-right: 1rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #aaa;
 }
-.general-item:hover {
+.dot {
+  margin-left: 1rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: blue;
+}
+.subscription-item:hover {
   background: #f8f8f8;
 }
-/*youtube items*/
+/*subscription items*/
